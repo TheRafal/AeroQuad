@@ -1,0 +1,2 @@
+# AeroQuad build property overrides
+#
