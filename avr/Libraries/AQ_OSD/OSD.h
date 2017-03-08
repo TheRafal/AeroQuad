@@ -77,7 +77,7 @@ void unhideOSD();
 #define OSD_NOW     0x02 // show message immediately (do not wait until OSD update)
 #define OSD_CENTER  0x01 // Justify at center
 
-#define notifyOSD(flags,fmt,args...) notifyOSDmenu(flags,255,255,fmt, ## args)
+#define notifyOSD(flags,fmt,args,...) notifyOSDmenu(flags,255,255,fmt, args)
 byte notifyOSDmenu(byte flags, byte cursorLeft, byte cursorRight, const char *fmt, ...);
 
 #endif

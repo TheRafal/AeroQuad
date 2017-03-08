@@ -60,7 +60,7 @@ void displayVoltage(byte areMotorsArmed) {
   #if defined (BattMonitorAutoDescent)
     if (batteryAlarm && areMotorsArmed) {
       if (!descentWarningShown) {
-        notifyOSD(OSD_CENTER|OSD_CRIT|OSD_BLINK, "BAT. CRITICAL - DESCENTING");
+        notifyOSD(OSD_CENTER|OSD_CRIT|OSD_BLINK, "BAT. CRITICAL - DESCENTING", "");
         descentWarningShown = true;
       }
     }

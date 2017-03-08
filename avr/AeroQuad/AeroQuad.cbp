@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="$safeprojectname$" />
+		<Option pch_mode="2" />
+		<Option compiler="msvc10" />
+		<Build>
+			<Target title="Release Win32">
+				<Option output="AeroQuad" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="msvc10" />
+				<Compiler>
+					<Add option="/D__AVR_ATmega2560__" />
+					<Add option="/DF_CPU=16000000L" />
+					<Add option="/DARDUINO=106012" />
+					<Add option="/DARDUINO_AVR_MEGA2560" />
+					<Add option="/DARDUINO_ARCH_AVR" />
+					<Add option="/D__cplusplus=201103L" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/EEPROM/src" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Defines" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Gps" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Math" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Receiver" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_BatteryMonitor" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_I2C" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Gyroscope" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Accelerometer" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Compass" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Kinematics" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Motors" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_BarometricSensor" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RangeFinder" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_FlightControlProcessor" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Accelerometer/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_BarometricSensor/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_BatteryMonitor/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_CameraStabilizer" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_CameraStabilizer/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Compass/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Defines/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_FlightControlProcessor/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Gps/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Gyroscope/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_I2C/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Kinematics/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Math/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Motors/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_OSD" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_OSD/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_APM" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_APM/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_CHR6DM" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_CHR6DM/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_Wii" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Platform_Wii/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RangeFinder/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_Receiver/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RSCode" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RSCode/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RSSI" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_RSSI/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_SoftModem" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_SoftModem/utility" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_SPI" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries/AQ_SPI/utility" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/EEPROM/src/utility" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility" />
+					<Add directory="C:/Program Files (x86)/Arduino/libraries" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/libraries" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/mega" />
+					<Add directory="D:/OneDrive/Drone/AeroQuad/AeroQuad/avr/AeroQuad" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/" />
+					<Add directory="C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include" />
+				</Compiler>
+				<Linker>
+					<Add option="/debug" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="AeroQuad.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="AeroQuad.ino">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="AltitudeControlProcessor.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="DataStorage.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="FlightCommandProcessor.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="FlightControlProcessor.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="GpsNavigator.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="HeadingHoldProcessor.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="LedStatusProcessor.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="MavLink.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="OSDDisplayController.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="OSDMenu.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="PID.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="SerialCom.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="SerialLCD.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="UserConfiguration.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Unit filename="__vm/.AeroQuad.vsarduino.h">
+			<Option target="Release Win32" />
+			<Option target="Debug Win32" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

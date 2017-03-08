@@ -71,7 +71,7 @@ void displayAltitude(float readedAltitude, float desiredAltitudeToKeep, boolean 
       lastHoldState = ON;
       lastHoldAltitude=currentHoldAltitude;
       #ifdef USUnits
-        snprintf(buf,7,"\12%4df",currentHoldAltitude);
+        snprintf(buf,7,"\012%4df",currentHoldAltitude);
       #else
         if (abs(currentHoldAltitude)<100) {
           snprintf(buf,7,"\012%c%1d.%1dm", currentHoldAltitude < 0 ? '-' : ' ',abs(currentHoldAltitude/10),abs(currentHoldAltitude%10));
@@ -86,7 +86,7 @@ void displayAltitude(float readedAltitude, float desiredAltitudeToKeep, boolean 
   case ALTPANIC:
     if (lastHoldState != ALTPANIC) {
       lastHoldState = ALTPANIC;
-      snprintf(buf,7,"\12panic");
+      snprintf(buf,7,"\012panic");
       isWriteNeeded = true;
     }
     break;

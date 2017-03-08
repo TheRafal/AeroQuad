@@ -18,8 +18,11 @@
   along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
 
+#include <avr/pgmspace.h>
+
 #ifndef _AQ_DECLINATION_DB_
 #define _AQ_DECLINATION_DB_
+
 
 #ifdef AeroQuadSTM32
   #define PGM_UINT8(p) (*(p))
@@ -27,7 +30,7 @@
   #define memcpy_P memcpy
   typedef char prog_char;
 #else
-  #define PGM_UINT8(p) (uint8_t)pgm_read_byte_far(p)
+  #define PGM_UINT8(p) pgm_read_byte_far(*(p))
   #define MAGDB_PROGMEM PROGMEM
 #endif
 
@@ -115,7 +118,7 @@ static const row_value declination_values[] MAGDB_PROGMEM = {
 int16_t getLookupValue(uint8_t x, uint8_t y) {
   
   // return value
-  int16_t val = 0;
+  char val = 0;
 
   // These are exception indicies
   if(x <= 6 || x >= 34)   {
@@ -169,7 +172,7 @@ int16_t getLookupValue(uint8_t x, uint8_t y) {
   // Find the first element in the 1D array
   // that corresponds with the target row
   for(i = 0; i < x; i++){
-    start_index += PGM_UINT8(&declination_keys[1][i]);
+    (start_index += PGM_UINT8(&declination_keys[1][i]));
   }
 
   // Traverse the row until we find our value
@@ -178,7 +181,7 @@ int16_t getLookupValue(uint8_t x, uint8_t y) {
 	  i++) {
 
     // Pull out the row_value struct
-    memcpy_P((void*) &stval, (const prog_char *)&declination_values[i], sizeof(struct row_value));
+    memcpy_P((void*) &stval, ((const char *)&declination_values[i]), (sizeof(struct row_value)));
 
     // Pull the first offset and determine sign
     int16_t offset = stval.abs_offset;

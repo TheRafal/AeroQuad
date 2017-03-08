@@ -178,7 +178,7 @@ void armMotors() {
   #endif
 
   #ifdef OSD
-    notifyOSD(OSD_CENTER|OSD_WARN, "!MOTORS ARMED!");
+    notifyOSD(OSD_CENTER|OSD_WARN, "!MOTORS ARMED!", "");
   #endif  
 
   zeroIntegralError();
@@ -194,7 +194,7 @@ void disarmMotors() {
   #endif
 
   #ifdef OSD
-    notifyOSD(OSD_CENTER|OSD_WARN, "MOTORS UNARMED");
+    notifyOSD(OSD_CENTER|OSD_WARN, "MOTORS UNARMED", "");
   #endif
 
   #if defined BattMonitorAutoDescent

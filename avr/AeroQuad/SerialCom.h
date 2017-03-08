@@ -1100,7 +1100,7 @@ void fastTelemetry()
 
   byte slowTelemetryByte = 255;
 
-  void initSlowTelemetry() {
+  void initSlowTelemetry() { 
 #ifdef SoftModem
     softmodemInit();
 #else

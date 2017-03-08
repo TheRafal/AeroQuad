@@ -770,8 +770,8 @@ typedef enum DEVICE_OP_BUSTYPE
 #include "./mavlink_msg_rpm.h"
 
 // base include
-#include "../common/common.h"
-#include "../uAvionix/uAvionix.h"
+#include "../mavlink/include/common/common.h"
+#include "../mavlink/include/uAvionix/uAvionix.h"
 
 #undef MAVLINK_THIS_XML_IDX
 #define MAVLINK_THIS_XML_IDX 0

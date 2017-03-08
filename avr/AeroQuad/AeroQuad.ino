@@ -1262,6 +1262,7 @@
 
 #ifdef SlowTelemetry
   #include <AQ_RSCode.h>
+  #include "SerialCom.h"
 #endif
 
 #ifdef SoftModem

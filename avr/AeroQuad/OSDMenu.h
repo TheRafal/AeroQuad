@@ -90,7 +90,7 @@ void menuHandleSimple(byte mode, byte action) {
       for (int i=0; i<numberOfBatteries; i++) {
         resetBattery(i);
       }
-      notifyOSD(OSD_NOCLEAR|OSD_CENTER, "Battery state reset!");
+	  notifyOSD(OSD_NOCLEAR|OSD_CENTER, "Battery state reset!", "");
       menuInFunc = 10;
       break;
 #endif
@@ -156,13 +156,13 @@ void menuHandleConfirm(byte mode, byte action) {
       case 0:
         writeEEPROM(); // defined in DataStorage.h
         zeroIntegralError();
-        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "EEPROM data saved");
+        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "EEPROM data saved","");
         menuInFunc = 10;
         break;
 
       case 1:
         // Initialize EEPROM with default values
-        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "initializing EEPROM");
+        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "initializing EEPROM","");
         initializeEEPROM(); // defined in DataStorage.h
         writeEEPROM(); // defined in DataStorage.h
         calibrateGyro();
@@ -174,7 +174,7 @@ void menuHandleConfirm(byte mode, byte action) {
 #if defined AltitudeHoldBaro
         initializeBaro();
 #endif
-        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "EEPROM reinitialized");
+        notifyOSD(OSD_NOCLEAR|OSD_CENTER, "EEPROM reinitialized","");
         menuInFunc = 10; // callback after 1s
         break;
 
@@ -362,10 +362,10 @@ void menuHandlePidTune(byte mode, byte action) {
           PID[menuFuncData[1]].D = menuFuncDataFloat;
           break;
         }
-        notifyOSD(OSD_NOCLEAR, "PID value saved!!");
+        notifyOSD(OSD_NOCLEAR, "PID value saved!!","");
       }
       else {
-        notifyOSD(OSD_NOCLEAR, "PID value not saved!!");
+        notifyOSD(OSD_NOCLEAR, "PID value not saved!!","");
       }
       menuInFunc = 10;     // callback after 1 second
       menuFuncData[0] = 1; //return to P/I/D selection
@@ -494,7 +494,7 @@ void menuHideOSD(byte mode, byte action){
 
   menuInFunc=0;
   menuEntry=255;
-  notifyOSD(OSD_NOCLEAR,NULL);
+  notifyOSD(OSD_NOCLEAR,NULL,"");
   hideOSD();
 }
 
@@ -552,7 +552,7 @@ void menuCameraPTZ(byte mode, byte action){
 //      servoCenterRoll = savedCenterRoll;
       cameraMode  = savedCameraMode;
 
-      notifyOSD(OSD_NOCLEAR|OSD_CENTER, "exiting PTZ mode");
+      notifyOSD(OSD_NOCLEAR|OSD_CENTER, "exiting PTZ mode","");
       return;
     }
 
@@ -721,7 +721,7 @@ void menuShow(byte entry) {
     }
   }
   else {
-    notifyOSD(OSD_NOCLEAR,NULL);
+    notifyOSD(OSD_NOCLEAR,NULL,"");
   }
 }
 
@@ -853,7 +853,7 @@ void updateOSDMenu() {
       if (menuInFunc) {
         MENU_CALLFUNC(menuEntry, MENU_ABORT);
       }
-      notifyOSD(0, NULL); // clear menuline
+      notifyOSD(0, NULL, ""); // clear menuline
       menuInFunc = 0;
       menuEntry  = 255;
     }
