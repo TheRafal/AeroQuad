@@ -68,6 +68,8 @@
 //********* PLATFORM SPECIFIC SECTION ********************
 //********************************************************
 //********************************************************
+
+#pragma region Old Boards and shield
 #ifdef AeroQuad_v1
   #define LED_Green 13
   #define LED_Red 12
@@ -491,6 +493,7 @@
     measureAccelSum();
   }
 #endif
+#pragma endregion
 
 #ifdef AeroQuadMega_v21
   #define LED_Green 13
@@ -549,7 +552,7 @@
 
 
   /**
-   * Put AeroQuadMega_v21 specific initialization need here
+   * Put AeroQuadMega_v2X specific initialization need here
    */
   void initPlatform() {
 
@@ -597,6 +600,113 @@
   }
 #endif
 
+#ifdef AeroQuadMega_v2X
+#define LED_Green 13
+#define LED_Red 4
+#define LED_Yellow 31
+
+#include <Device_I2C.h>
+
+  // Gyroscope declaration
+#define ITG3200_ADDRESS_ALTERNATE
+#include <Gyroscope_ITG3200_9DOF.h>
+
+  // Accelerometer declaration
+#include <Accelerometer_ADXL345_9DOF.h>
+
+  // Receiver Declaration
+#define RECEIVER_MEGA
+
+  // Motor declaration
+#define MOTOR_PWM_Timer
+
+  // heading mag hold declaration
+#ifdef HeadingMagHold
+#include <Compass.h>
+#define SPARKFUN_9DOF_5883L
+#endif
+
+  // Altitude declaration
+#ifdef AltitudeHoldBaro
+#define BMP180
+#endif
+#ifdef AltitudeHoldRangeFinder
+#define XLMAXSONAR 
+#endif
+
+
+  // Battery Monitor declaration
+#ifdef BattMonitor
+#ifdef POWERED_BY_VIN
+#define BattDefaultConfig DEFINE_BATTERY(0, 0, 15.0, 0, BM_NOPIN, 0, 0) // v2 shield powered via VIN (no diode)
+#else
+#define BattDefaultConfig DEFINE_BATTERY(0, 0, 15.0, 0.82, BM_NOPIN, 0, 0) // v2 shield powered via power jack
+#endif
+#else
+#undef BattMonitorAutoDescent
+#undef POWERED_BY_VIN        
+#endif
+
+#ifdef OSD
+#define MAX7456_OSD
+#endif  
+
+#ifndef UseGPS
+#undef UseGPSNavigator
+#endif
+
+
+  /**
+  * Put AeroQuadMega_v21 specific initialization need here
+  */
+  void initPlatform() {
+
+	  pinMode(LED_Red, OUTPUT);
+	  digitalWrite(LED_Red, LOW);
+	  pinMode(LED_Yellow, OUTPUT);
+	  digitalWrite(LED_Yellow, LOW);
+
+	  // pins set to INPUT for camera stabilization so won't interfere with new camera class
+	  pinMode(33, INPUT); // disable SERVO 1, jumper D12 for roll
+	  pinMode(34, INPUT); // disable SERVO 2, jumper D11 for pitch
+	  pinMode(35, INPUT); // disable SERVO 3, jumper D13 for yaw
+	  pinMode(43, OUTPUT); // LED 1
+	  pinMode(44, OUTPUT); // LED 2
+	  pinMode(45, OUTPUT); // LED 3
+	  pinMode(46, OUTPUT); // LED 4
+	  digitalWrite(43, HIGH); // LED 1 on
+	  digitalWrite(44, HIGH); // LED 2 on
+	  digitalWrite(45, HIGH); // LED 3 on
+	  digitalWrite(46, HIGH); // LED 4 on
+
+	  Wire.begin();
+	  TWBR = 12;
+  }
+
+  // called when eeprom is initialized
+  void initializePlatformSpecificAccelCalibration() {
+	  // Kenny default value, a real accel calibration is strongly recommended
+	  accelScaleFactor[XAXIS] = 0.0365570020;
+	  accelScaleFactor[YAXIS] = 0.0363000011;
+	  accelScaleFactor[ZAXIS] = -0.0384629964;
+#ifdef HeadingMagHold
+	  magBias[XAXIS] = 1.500000;
+	  magBias[YAXIS] = 205.500000;
+	  magBias[ZAXIS] = -33.000000;
+#endif
+  }
+
+  /**
+  * Measure critical sensors
+  */
+  void measureCriticalSensors() {
+	  measureGyroSum();
+	  measureAccelSum();
+  }
+#endif
+
+
+#pragma region Unused Board Or Shiel
 #ifdef ArduCopter
   #define LED_Green 37
   #define LED_Red 35
@@ -1052,6 +1162,8 @@
     }
   }
 #endif
+#pragma endregion
+
 
 //********************************************************
 //********************************************************
@@ -1150,7 +1262,7 @@
 //********************************************************
 //******* ALTITUDE HOLD BAROMETER DECLARATION ************
 //********************************************************
-#if defined(BMP085)
+#if defined(BMP085)|| defined(BMP180)
   #include <BarometricSensor_BMP085.h>
 #elif defined(MS5611)
  #include <BarometricSensor_MS5611.h>

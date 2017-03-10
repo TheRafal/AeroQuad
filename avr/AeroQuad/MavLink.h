@@ -243,7 +243,7 @@ void sendSerialHeartbeat() {
   }
 
   #if defined(UseGPSNavigator)
-    if (navigationState == ON || positionHoldState == ON) {
+    if (autoPilotState == AUTO_NAVIGATION || autoPilotState == POSITION_HOLD) {
       systemMode |= MAV_MODE_FLAG_GUIDED_ENABLED;
     }
   #endif
@@ -390,7 +390,7 @@ void sendSerialSysStatus() {
     controlSensorEnabled |= (1<<12); // yaw position
   }
   #if defined(UseGPSNavigator)
-    if (positionHoldState == ON || navigationState == ON) {
+    if (autoPilotState == AUTO_NAVIGATION || autoPilotState == POSITION_HOLD) {
       controlSensorEnabled |= (1<<14); // X/Y position control
     }
   #endif
