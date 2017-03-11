@@ -57,13 +57,13 @@
 // Use only one of the following definitions
 //For more information please refer to http://aeroquad.com/showwiki.php?title=Flight+Configurations
 
-#define quadXConfig
-#define quadPlusConfig
-#define hexPlusConfig
+//#define quadXConfig
+//#define quadPlusConfig
+//#define hexPlusConfig
 #define hexXConfig      
-#define triConfig
-#define quadY4Config
-#define hexY6Config
+//#define triConfig
+//#define quadY4Config
+//#define hexY6Config
 //#define octoX8Config
 //#define octoPlusConfig		// EXPERIMENTAL: not completely re-tested
 //#define octoXConfig			// EXPERIMENTAL: not completely re-tested

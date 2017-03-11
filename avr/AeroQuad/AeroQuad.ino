@@ -1423,6 +1423,10 @@ void setup() {
   
   initPlatform();
   
+  #if defined(BLHELI_ESC)
+	 commandAllMotors(0);
+  #endif
+
   #if defined(quadXConfig) || defined(quadPlusConfig) || defined(quadY4Config) || defined(triConfig) || defined(roverConfig)
      initializeMotors(FOUR_Motors);
   #elif defined(hexPlusConfig) || defined(hexXConfig) || defined(hexY6Config)
