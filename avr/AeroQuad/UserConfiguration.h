@@ -107,7 +107,7 @@
 #define UseGPSNavigator
 
 // Device specific settings
-#define UseGPSMTKBINARY   // Set MTK devices to binary protocol (only DiyDrones MTK1.6 protocol supported)
+//#define UseGPSMTKBINARY   // Set MTK devices to binary protocol (only DiyDrones MTK1.6 protocol supported)
 
 //
 // *******************************************************************************************************************************
@@ -116,10 +116,10 @@
 // *******************************************************************************************************************************
 #define BattMonitor				// Enables Battery monitor
 #define BattMonitorAutoDescent  // NEED BattMonitor defined. If you want the craft to auto descent when the battery reaches the alarm voltage
-#define POWERED_BY_VIN        // NEED BattMonitor defined. Uncomment this if your v2.x shield is powered directly by the Vin/Gnd of the arduino
+//#define POWERED_BY_VIN        // NEED BattMonitor defined. Uncomment this if your v2.x shield is powered directly by the Vin/Gnd of the arduino instead of jack
 //
 // Advanced configuration. Please refer to the wiki for instructions.
-#define BattCustomConfig DEFINE_BATTERY(0,A4,51.8,0,A3,180.3,0)
+#define BattCustomConfig DEFINE_BATTERY(6,A4,15,0.82,A3,180.3,0)
 
 //
 // *******************************************************************************************************************************
@@ -134,21 +134,21 @@
 
 // You need to select one of these channel order definitions for PPM receiver
 //#define SKETCH_SERIAL_SUM_PPM SERIAL_SUM_PPM_1	//For Graupner/Spektrum (DEFAULT)
-#define SKETCH_SERIAL_SUM_PPM SERIAL_SUM_PPM_2		//For Robe/Hitec/Futaba/Turnigy9X+Er9X
+//#define SKETCH_SERIAL_SUM_PPM SERIAL_SUM_PPM_2		//For Robe/Hitec/Futaba/Turnigy9X+Er9X
 //#define SKETCH_SERIAL_SUM_PPM SERIAL_SUM_PPM_3	//For some Hitec/Sanwa/Others
 
 //Active only one of them to prevent error during complilation
 //#define UseAnalogRSSIReader	// Reads RSSI for receiver failsafe, NEEDS A RECEIVER WITH FAILSAVE CONNECTED ON PIN A6 OF THE SHIELD
 //#define UseEzUHFRSSIReader	// Reads RSSI and Signal quality on channel 7(RSSI) and 8(Signal Quality) of the EzUHF receiver (Receiver have to be configures this way)
-#define UseSBUSRSSIReader		
+//#define UseSBUSRSSIReader		
 
 //
 // *******************************************************************************************************************************
 // Define how many channels are connected from your R/C receiver
 // *******************************************************************************************************************************
 //#define LASTCHANNEL 6
-//#define LASTCHANNEL 8
-#define LASTCHANNEL 10 // EXPERIMENTAL only tested with ReceiverSBUS on AQ32, test extensively before using other boards/receiver types
+#define LASTCHANNEL 8
+//#define LASTCHANNEL 10 // EXPERIMENTAL only tested with ReceiverSBUS on AQ32, test extensively before using other boards/receiver types
 
 
 //
@@ -188,8 +188,8 @@
 // Please note that you will need to have battery connected to power on servos with v2.0 shield
 // For more information please refer to http://aeroquad.com/showwiki.php?title=Camera+Stabilization
 // *******************************************************************************************************************************
-#define CameraControl
-#define CameraTXControl  // need to have CameraControl to work
+//#define CameraControl
+//#define CameraTXControl  // need to have CameraControl to work
 
 //
 // *******************************************************************************************************************************
@@ -197,15 +197,16 @@
 // For more information on how to setup OSD please refer to http://aeroquad.com/showwiki.php?title=On-Screen-Display
 // *************************************************************.******************************************************************
 #define OSD
-#define ShowRSSI                  // This REQUIRES a RSSI reader
-#define PAL                       // uncomment this to default to PAL video
-#define AUTODETECT_VIDEO_STANDARD // detect automatically, signal must be present at Arduino powerup!
-#define CALLSIGN "KF7YRK"         // Show (optional) callsign
-#define ShowAttitudeIndicator     // Display the attitude indicator calculated by the AHRS
-#define USUnits                   // Enable for US units (feet,miles,mph), leave uncommented for metric units (meter,kilometer,km/h)
-//#define OSD_LOADFONT              // Include MAX7456 font into binary, give & on serial to upload
+// #define MAX7456Display						 //to enable some special future about MAX7456
+// #define ShowRSSI                  // This REQUIRES a RSSI reader
+// #define PAL                       // uncomment this to default to PAL video
+// #define AUTODETECT_VIDEO_STANDARD // detect automatically, signal must be present at Arduino powerup!
+// #define CALLSIGN "KF7YRK"         // Show (optional) callsign
+// #define ShowAttitudeIndicator     // Display the attitude indicator calculated by the AHRS
+// #define USUnits                   // Enable for US units (feet,miles,mph), leave uncommented for metric units (meter,kilometer,km/h)
+// #define OSD_LOADFONT              // Include MAX7456 font into binary, give & on serial to upload
 
-#define OSD_SYSTEM_MENU           // Menu system, currently only usable with OSD or SERIAL_LCD
+ #define OSD_SYSTEM_MENU           // Menu system, currently only usable with OSD or SERIAL_LCD
 
 //
 // *******************************************************************************************************************************
@@ -213,7 +214,7 @@
 // Note: Can NOT be enabled at the same time with OSD
 // For more information please refer to http://aeroquad.com/showwiki.php?title=OnBoardMenu
 // *************************************************************.******************************************************************
-//#define SERIAL_LCD Serial3
+  #define SERIAL_LCD Serial3
 
 
 

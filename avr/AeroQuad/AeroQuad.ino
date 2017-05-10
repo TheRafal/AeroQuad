@@ -1,3 +1,4 @@
+
 /*
   AeroQuad v3.0.1 - February 2012
   www.AeroQuad.com
@@ -1338,7 +1339,7 @@
 #ifdef MAX7456_OSD     // only OSD supported for now is the MAX7456
   #include <Device_SPI.h>
   #include "OSDDisplayController.h"
-  #include "MAX7456.h"
+  //#include "MAX7456.h"
 #endif
 
 #if defined(SERIAL_LCD)
@@ -1410,6 +1411,8 @@ void setup() {
   SERIAL_BEGIN(BAUD);
   pinMode(LED_Green, OUTPUT);
   digitalWrite(LED_Green, LOW);
+  pinMode(LED_Red, OUTPUT);
+  digitalWrite(LED_Red, LOW);
 
   initCommunication();
   
@@ -1418,9 +1421,9 @@ void setup() {
   if (readFloat(SOFTWARE_VERSION_ADR) != SOFTWARE_VERSION) { // If we detect the wrong soft version, we init all parameters
     initializeEEPROM();
     writeEEPROM();
-    firstTimeBoot = true;
+    firstTimeBoot = true;  
   }
-  
+
   initPlatform();
   
   #if defined(BLHELI_ESC)
@@ -1437,10 +1440,10 @@ void setup() {
 
   initializeReceiver(LASTCHANNEL);
   initReceiverFromEEPROM();
-  
-  // Initialize sensors
-  // If sensors have a common initialization routine
-  // insert it into the gyro class because it executes first
+
+   //Initialize sensors
+   //If sensors have a common initialization routine
+   //insert it into the gyro class because it executes first
   initializeGyro(); // defined in Gyro.h
   while (!calibrateGyro()); // this make sure the craft is still befor to continue init process
   initializeAccel(); // defined in Accel.h
@@ -1448,9 +1451,10 @@ void setup() {
     computeAccelBias();
     writeEEPROM();
   }
+
   setupFourthOrder();
   initSensorsZeroFromEEPROM();
-  
+
   // Integral Limit for attitude mode
   // This overrides default set in readEEPROM()
   // Set for 1/2 max attitude command (+/-0.75 radians)
@@ -1480,7 +1484,7 @@ void setup() {
     PID[SONAR_ALTITUDE_HOLD_PID_IDX].D = PID[BARO_ALTITUDE_HOLD_PID_IDX].D;
     PID[SONAR_ALTITUDE_HOLD_PID_IDX].windupGuard = PID[BARO_ALTITUDE_HOLD_PID_IDX].windupGuard;
   #endif
-  
+
   #ifdef BattMonitor
     initializeBatteryMonitor(sizeof(batteryData) / sizeof(struct BatteryData), batteryMonitorAlarmVoltage);
     vehicleState |= BATTMONITOR_ENABLED;
@@ -1529,6 +1533,9 @@ void setup() {
     motorArmed = ON;
     safetyCheck = ON;
   #endif
+
+  Serial.println("Initialisation Complet");
+
 }
 
 

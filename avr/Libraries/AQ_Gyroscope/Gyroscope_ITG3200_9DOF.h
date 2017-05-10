@@ -61,8 +61,11 @@ boolean calibrateGyro() {
 	  int tmp = findMedianIntWithDiff(findZero, FINDZERO, &diff);
 	  if (diff <= GYRO_CALIBRATION_TRESHOLD) { // 4 = 0.27826087 degrees during 49*10ms measurements (490ms). 0.57deg/s difference between first and last.
 	    gyroZero[YAXIS] = tmp;
+		Serial.println("Gyro Calibration Phase 1 complet");
+
   	  } 
 	  else {
+
 	    return false; //Calibration failed.
 	  }
     }
@@ -70,6 +73,8 @@ boolean calibrateGyro() {
 	  int tmp = findMedianIntWithDiff(findZero, FINDZERO, &diff);
 	  if (diff <= GYRO_CALIBRATION_TRESHOLD) { // 4 = 0.27826087 degrees during 49*10ms measurements (490ms). 0.57deg/s difference between first and last.
 	    gyroZero[XAXIS] = tmp;
+		Serial.println("Gyro Calibration Phase 2 complet");
+
   	  } 
 	  else {
 	    return false; //Calibration failed.
@@ -79,12 +84,15 @@ boolean calibrateGyro() {
 	  int tmp = findMedianIntWithDiff(findZero, FINDZERO, &diff);
 	  if (diff <= GYRO_CALIBRATION_TRESHOLD) { // 4 = 0.27826087 degrees during 49*10ms measurements (490ms). 0.57deg/s difference between first and last.
 	    gyroZero[ZAXIS] = tmp;
+		Serial.println("Gyro Calibration Phase 3 complet");
+
   	  } 
 	  else {
 		return false; //Calibration failed.
 	  }
     }
   }
+  Serial.println("Gyro Calibration complet");
 
   return true; //Calibration successfull.
 }
